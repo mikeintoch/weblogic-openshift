@@ -6,12 +6,11 @@ ENV JAVA_VERSION=${JAVA_VERSION:-1.8.0} \
 
 ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-${JAVA_TYPE}
 
-RUN yum repolist --disablerepo=* && \
-    yum-config-manager --disable \* > /dev/null && \
-    yum-config-manager --enable rhel-7-server-rpms > /dev/null \
-    yum-config-manager --enable rhel-7-server-extras-rpms > /dev/null \
-    yum-config-manager --enable rhel-7-server-optional-rpms > /dev/null \
-    yum-config-manager --enable rhel-7-server-thirdparty-oracle-java-rpms > /dev/null \
+RUN yum --disablerepo=* \
+        --enablerepo=rhel-7-server-rpms \
+        --enablerepo=rhel-7-server-extras-rpms \
+        --enablerepo=rhel-7-server-optional-rpms \
+        --enablerepo=rhel-7-server-thirdparty-oracle-java-rpms \
       install -y \
       java-${JAVA_VERSION}-${JAVA_TYPE}-devel \
       java-${JAVA_VERSION}-${JAVA_TYPE}-jdbc && \
