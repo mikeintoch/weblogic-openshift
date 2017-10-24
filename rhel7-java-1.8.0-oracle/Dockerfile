@@ -11,7 +11,7 @@ RUN yum repolist --disablerepo=* && \
     yum-config-manager --enable rhel-7-server-rpms > /dev/null \
     yum-config-manager --enable rhel-7-server-extras-rpms > /dev/null \
     yum-config-manager --enable rhel-7-server-optional-rpms > /dev/null \
-    yum-config-manager --rhel-7-server-thirdparty-oracle-java-rpms > /dev/null \
+    yum-config-manager --enable rhel-7-server-thirdparty-oracle-java-rpms > /dev/null \
       install -y \
       java-${JAVA_VERSION}-${JAVA_TYPE}-devel \
       java-${JAVA_VERSION}-${JAVA_TYPE}-jdbc && \
