@@ -46,7 +46,7 @@ This image builder can be deployed using the following YAML:
         source:
           type: Git
           git:
-            uri: https://github.com/jkupferer/openshift-weblogic.git
+            uri: https://github.com/idavistro/openshift-weblogic.git
           contextDir: rhel7-java-1.8.0-oracle
         strategy:
           dockerStrategy:
