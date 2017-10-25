@@ -94,7 +94,7 @@ customize the the environment variables as described above:
               name: httpd-24-rhel7:latest
             env:
             - name: FMW_BASEURL
-              value: http://192.168.42.1/
+              value: http://192.168.42.1/test/
             - name: FMW_VERSION
               value: 12.2.1.1.0
         triggers:
