@@ -5,8 +5,8 @@ ENV JAVA_VERSION=${JAVA_VERSION:-1.8.0} \
     JAVA_TYPE=${JAVA_TYPE:-oracle}
 
 # ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-${JAVA_TYPE}
-# ENV JAVA_HOME=JAVA_HOME="/usr/java/latest"
-ENV JAVA_HOME="/usr/java/jdk1.8.0_151"
+ENV JAVA_HOME=JAVA_HOME="/usr/java/latest"
+# ENV JAVA_HOME="/usr/java/jdk1.8.0_151"
 
 # PATHS
 ENV DOWNLOAD=/tmp/download
@@ -41,6 +41,8 @@ RUN alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 200000
 ## alternatives --install /usr/bin/jar jar /usr/java/jdk1.8.0_144/bin/jar 200000
 
 RUN java -version
+
+RUN $JAVA_HOME/bin/java
 
 ## export JAVA_HOME JDK/JRE ##
 ## export JAVA_HOME="/usr/java/latest"
