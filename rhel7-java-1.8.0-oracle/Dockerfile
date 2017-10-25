@@ -42,7 +42,7 @@ RUN alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 200000
 
 RUN java -version
 
-RUN $JAVA_HOME/bin/java
+RUN $JAVA_HOME/bin/java -version
 
 ## export JAVA_HOME JDK/JRE ##
 ## export JAVA_HOME="/usr/java/latest"
