@@ -21,3 +21,30 @@ http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704
 RUN mv *.* $DOWNLOAD
 
 RUN rpm -Uvh $DOWNLOAD/jdk-8u151-linux-x64.rpm
+
+## java ##
+RUN alternatives --install /usr/bin/java java /usr/java/latest/jre/bin/java 200000
+## javaws ##
+RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/jre/bin/javaws 200000
+
+## Install javac only if you installed JDK (Java Development Kit) package ##
+RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
+RUN alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 200000
+
+## java ##
+## alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_144/jre/bin/java 200000
+## javaws ##
+## alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.8.0_144/jre/bin/javaws 200000
+
+## Install javac only if you installed JDK (Java Development Kit) package ##
+## alternatives --install /usr/bin/javac javac /usr/java/jdk1.8.0_144/bin/javac 200000
+## alternatives --install /usr/bin/jar jar /usr/java/jdk1.8.0_144/bin/jar 200000
+
+java -version
+
+## export JAVA_HOME JDK/JRE ##
+## export JAVA_HOME="/usr/java/latest"
+
+## export JAVA_HOME JDK ##
+## export JAVA_HOME="/usr/java/jdk1.8.0_144"
+ 
