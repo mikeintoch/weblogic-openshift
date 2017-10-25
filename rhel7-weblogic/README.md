@@ -42,7 +42,7 @@ you would set these in your buildconfig as:
     dockerStrategy:
       env:
       - name: FMW_BASEURL
-        value: http://fileserv.example.com/weblogic/
+        value: http://localhost/fmw_12.2.1.1.0_wls_Disk1_1of1.zip
       - name: FMW_VERSION
         value: 12.2.1.1.0
       - name: FMW_QUICK
