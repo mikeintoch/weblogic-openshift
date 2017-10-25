@@ -43,6 +43,7 @@ COPY httpd.conf /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
 # Unpack this mess to get the required files then clean up.
 RUN mkdir /opt/app-root/src/extract && \
     cd /opt/app-root/src/extract && \
+    chmod 777 /opt/app-root/src/${FMW_PKG} && \
     unzip /opt/app-root/src/${FMW_PKG} && \
     unzip WLSPlugins12c-${FMW_VERSION}.zip && \
     unzip WLSPlugin${FMW_VERSION}-Apache2.2-Apache2.4-Linux_x86_64-12.2.1.1.0.zip && \
