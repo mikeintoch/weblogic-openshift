@@ -40,7 +40,7 @@ RUN alternatives --install /usr/bin/jar jar /usr/java/latest/bin/jar 200000
 ## alternatives --install /usr/bin/javac javac /usr/java/jdk1.8.0_144/bin/javac 200000
 ## alternatives --install /usr/bin/jar jar /usr/java/jdk1.8.0_144/bin/jar 200000
 
-java -version
+RUN java -version
 
 ## export JAVA_HOME JDK/JRE ##
 ## export JAVA_HOME="/usr/java/latest"
