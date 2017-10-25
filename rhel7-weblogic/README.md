@@ -86,11 +86,11 @@ customize the the environment variables as described above:
           dockerStrategy:
             env:
             - name: FMW_BASEURL
-              value: http://localhost/fmw_12.2.1.1.0_wls_Disk1_1of1.zip
+              value: http://192.168.42.1
             - name: FMW_VERSION
               value: 12.2.1.1.0
             - name: FMW_QUICK
-              value: "True"
+              value: "False"
             from:
               kind: ImageStreamTag
               name: rhel7-java-180-oracle:latest
