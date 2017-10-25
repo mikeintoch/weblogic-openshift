@@ -31,7 +31,7 @@ MAINTAINER Johnathan Kupferer <jkupfere@redhat.com>
 ENV FMW_VERSION=${FMW_VERSION:-12.2.1.1.0} \
     LD_LIBRARY_PATH=/opt/app-root/mod_wl/
 ENV FMW_BASEURL=${FMW_BASEURL:-http://fileserv.libvirt:8008/}
-ENV FMW_PKG=fmw_${FMW_VERSION}_wlsplugins_Disk1_1of1.zip
+ENV FMW_PKG=davfmw_${FMW_VERSION}_wlsplugins_Disk1_1of1.zip
 
 # Download zip file to /opt/app-root/src
 ADD ${FMW_BASEURL}${FMW_PKG} /opt/app-root/src
