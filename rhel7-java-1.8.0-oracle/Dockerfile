@@ -4,7 +4,8 @@ MAINTAINER Johnathan Kupferer <jkupfere@redhat.com>
 ENV JAVA_VERSION=${JAVA_VERSION:-1.8.0} \
     JAVA_TYPE=${JAVA_TYPE:-oracle}
 
-ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-${JAVA_TYPE}
+# ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-${JAVA_TYPE}
+ENV JAVA_HOME=JAVA_HOME="/usr/java/latest"
 
 # PATHS
 ENV DOWNLOAD=/tmp/download
