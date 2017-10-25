@@ -42,7 +42,7 @@ you would set these in your buildconfig as:
     dockerStrategy:
       env:
       - name: FMW_BASEURL
-        value: http://localhost/fmw_12.2.1.1.0_wls_Disk1_1of1.zip
+        value: http://fileserv.example.com/weblogic/
       - name: FMW_VERSION
         value: 12.2.1.1.0
       - name: FMW_QUICK
@@ -80,57 +80,13 @@ customize the the environment variables as described above:
         source:
           type: Git
           git:
-            uri: https://github.com/jkupferer/openshift-weblogic.git
+            uri: https://github.com/idavistro/openshift-weblogic.git
           contextDir: rhel7-weblogic
         strategy:
           dockerStrategy:
             env:
             - name: FMW_BASEURL
-              value: kind: List
-apiVersion: v1
-items:
-
-- kind: ImageStream
-  apiVersion: v1
-  metadata:
-    labels:
-      app: rhel7-weblogic
-    name: rhel7-weblogic
-  spec: {}
-
-- kind: BuildConfig
-  apiVersion: v1
-  metadata:
-    labels:
-      app: rhel7-weblogic
-    name: rhel7-weblogic
-  spec:
-    output:
-      to:
-        kind: ImageStreamTag
-        name: rhel7-weblogic:latest
-    source:
-      type: Git
-      git:
-        uri: https://github.com/idavistro/openshift-weblogic.git
-      contextDir: rhel7-weblogic
-    strategy:
-      dockerStrategy:
-        env:
-        - name: FMW_BASEURL
-          value: http://fileserv.example.com/weblogic/
-        - name: FMW_VERSION
-          value: 12.2.1.1.0
-        - name: FMW_QUICK
-          value: "True"
-        from:
-          kind: ImageStreamTag
-          name: rhel7-java-180-oracle:latest
-      type: Docker
-    triggers:
-    - type: ConfigChange
-    - type: ImageChange
-      imageChange: {}
+              value: http://localhost/fmw_12.2.1.1.0_wls_Disk1_1of1.zip
             - name: FMW_VERSION
               value: 12.2.1.1.0
             - name: FMW_QUICK
