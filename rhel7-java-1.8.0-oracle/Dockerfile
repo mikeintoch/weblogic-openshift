@@ -7,7 +7,7 @@ ENV JAVA_VERSION=${JAVA_VERSION:-1.8.0} \
 ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION}-${JAVA_TYPE}
 
 # PATHS
-ENV DOWNLOAD=/tmp/download/
+ENV DOWNLOAD=/tmp/download
 
 # DOWNLOAD packages
 RUN mkdir $DOWNLOAD \
