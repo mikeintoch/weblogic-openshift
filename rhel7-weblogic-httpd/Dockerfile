@@ -36,6 +36,14 @@ ENV FMW_PKG=davfmw_${FMW_VERSION}_wlsplugins_Disk1_1of1.zip
 # Download zip file to /opt/app-root/src
 ADD ${FMW_BASEURL}${FMW_PKG} /opt/app-root/src
 
+USER root
+RUN ls -l /opt/app-root/src/${FMW_PKG} && \
+    whoami && \
+    chmod a+rX /opt/app-root/src/${FMW_PKG} 
+
+USER default
+RUN whoami
+
 # Copy over customized httpd config.
 COPY httpd.conf /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
 
