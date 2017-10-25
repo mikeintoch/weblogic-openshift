@@ -84,7 +84,7 @@ customize the the environment variables as described above:
         source:
           type: Git
           git:
-            uri: https://github.com/jkupferer/openshift-weblogic.git
+            uri: https://github.com/idavistro/openshift-weblogic.git
           contextDir: rhel7-weblogic-httpd
         strategy:
           type: Docker
@@ -94,7 +94,7 @@ customize the the environment variables as described above:
               name: httpd-24-rhel7:latest
             env:
             - name: FMW_BASEURL
-              value: http://fileserv.libvirt:8008/
+              value: http://192.168.42.1/
             - name: FMW_VERSION
               value: 12.2.1.1.0
         triggers:
