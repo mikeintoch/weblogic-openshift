@@ -18,5 +18,4 @@ http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704
 
 RUN mv *.* $DOWNLOAD
 
-RUN rpm -Uvh $DOWNLOAD/jdk-8u144-linux-x64.rpm
-
+RUN rpm -Uvh $DOWNLOAD/jdk-8u151-linux-x64.rpm
