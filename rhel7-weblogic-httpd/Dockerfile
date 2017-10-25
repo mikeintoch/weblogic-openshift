@@ -39,10 +39,12 @@ ADD ${FMW_BASEURL}${FMW_PKG} /opt/app-root/src
 USER root
 RUN ls -l /opt/app-root/src/${FMW_PKG} && \
     whoami && \
-    chmod a+rX /opt/app-root/src/${FMW_PKG} 
+    chmod 755 /opt/app-root/src/${FMW_PKG} 
+
 
 USER default
-RUN whoami
+RUN whoami && \
+    ls -l /opt/app-root/src/${FMW_PKG} 
 
 # Copy over customized httpd config.
 COPY httpd.conf /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
@@ -51,9 +53,6 @@ COPY httpd.conf /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
 # Unpack this mess to get the required files then clean up.
 RUN mkdir /opt/app-root/src/extract && \
     cd /opt/app-root/src/extract && \
-    ls -l /opt/app-root/src/${FMW_PKG} && \
-    whoami && \
-    chmod a+rX /opt/app-root/src/${FMW_PKG} && \
     unzip /opt/app-root/src/${FMW_PKG} && \
     unzip WLSPlugins12c-${FMW_VERSION}.zip && \
     unzip WLSPlugin${FMW_VERSION}-Apache2.2-Apache2.4-Linux_x86_64-12.2.1.1.0.zip && \
