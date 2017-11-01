@@ -41,7 +41,7 @@ repository. Alternately you can build it using the following YAML:
         source:
           git:
             uri: https://github.com/idavistro/openshift-weblogic.git
-          contextDir: rhel7-weblogic-atmmovilapp
+          contextDir: rhel7-weblogic-sampleapp
           type: Git
         strategy:
           dockerStrategy:
