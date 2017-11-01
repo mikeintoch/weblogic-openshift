@@ -7,15 +7,15 @@ ENV JAVA_HOME="/usr/java/jdk1.8.0_151"
 # Copy binaries
 # -------------
 #ADD ${JAVA_BASEURL}${JAVA_NAME} /u01/tmp
-ADD http://192.168.42.1/jdk-8u151-linux-x64.rpm /u01/tmp
+COPY http://192.168.42.1/jdk-8u151-linux-x64.rpm /u01/tmp/
 
 
 # Add Binaries and Install JDK
 # RUN chmod a+xr /u01/tmp && \
   #  rpm -Uvh /u01/tmp/${JAVA_NAME}
 
-RUN chmod a+xr /u01/tmp && \
-    ls -l /u01/tmp && \
+RUN chmod a+xr /u01/tmp/ && \
+    ls -l /u01/tmp/ && \
     rpm -Uvh /u01/tmp/jdk-8u151-linux-x64.rpm
 
 ## java ##
