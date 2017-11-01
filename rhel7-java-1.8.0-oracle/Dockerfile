@@ -11,7 +11,7 @@ ADD ${JAVA_BASEURL}${JAVA_NAME} /u01/tmp
 
 
 # Add Binaries and Install JDK
-RUN chmod a+xr /tmp && \
+RUN chmod a+xr /tmp/ && \
     rpm -Uvh /tmp/${JAVA_NAME}
 
 #RUN chmod a+xr /tmp/ && \
