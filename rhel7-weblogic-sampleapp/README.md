@@ -23,25 +23,25 @@ repository. Alternately you can build it using the following YAML:
       apiVersion: v1
       metadata:
         labels:
-          app: rhel7-weblogic-sampleapp
-        name: rhel7-weblogic-sampleapp
+          app: rhel7-weblogic-atmmovilapp
+        name: rhel7-weblogic-atmmovilapp
       spec: {}
 
     - kind: BuildConfig
       apiVersion: v1
       metadata:
         labels:
-          app: rhel7-weblogic-sampleapp
-        name: rhel7-weblogic-sampleapp
+          app: rhel7-weblogic-atmmovilapp
+        name: rhel7-weblogic-atmmovilapp
       spec:
         output:
           to:
             kind: ImageStreamTag
-            name: rhel7-weblogic-sampleapp:latest
+            name: rhel7-weblogic-atmmovilapp:latest
         source:
           git:
-            uri: https://github.com/jkupferer/openshift-weblogic.git
-          contextDir: rhel7-weblogic-sampleapp
+            uri: https://github.com/idavistro/openshift-weblogic.git
+          contextDir: rhel7-weblogic-atmmovilapp
           type: Git
         strategy:
           dockerStrategy:
@@ -58,26 +58,26 @@ repository. Alternately you can build it using the following YAML:
       apiVersion: v1
       metadata:
         labels:
-          app: rhel7-weblogic-sampleapp
-        name: rhel7-weblogic-sampleapp
+          app: rhel7-weblogic-atmmovilapp
+        name: rhel7-weblogic-atmmovilapp
       spec:
         replicas: 1
         selector:
-          app: rhel7-weblogic-sampleapp
-          deploymentconfig: rhel7-weblogic-sampleapp
+          app: rhel7-weblogic-atmmovilapp
+          deploymentconfig: rhel7-weblogic-atmmovilapp
         strategy:
           resources: {}
         template:
           metadata:
             annotations:
-              openshift.io/container.rhel7-weblogic-sampleapp.image.entrypoint: '["startWebLogic.sh"]'
+              openshift.io/container.rhel7-weblogic-atmmovilapp.image.entrypoint: '["startWebLogic.sh"]'
             labels:
-              app: rhel7-weblogic-sampleapp
-              deploymentconfig: rhel7-weblogic-sampleapp
+              app: rhel7-weblogic-atmmovilapp
+              deploymentconfig: rhel7-weblogic-atmmovilapp
           spec:
             containers:
-            - image: rhel7-weblogic-sampleapp:latest
-              name: rhel7-weblogic-sampleapp
+            - image: rhel7-weblogic-atmmovilapp:latest
+              name: rhel7-weblogic-atmmovilapp
               ports:
               - containerPort: 8001
                 protocol: TCP
@@ -86,18 +86,18 @@ repository. Alternately you can build it using the following YAML:
         - imageChangeParams:
             automatic: true
             containerNames:
-            - rhel7-weblogic-sampleapp
+            - rhel7-weblogic-atmmovilapp
             from:
               kind: ImageStreamTag
-              name: rhel7-weblogic-sampleapp:latest
+              name: rhel7-weblogic-atmmovilapp:latest
           type: ImageChange
 
     - kind: Service
       apiVersion: v1
       metadata:
         labels:
-          app: rhel7-weblogic-sampleapp
-        name: rhel7-weblogic-sampleapp
+          app: rhel7-weblogic-atmmovilapp
+        name: rhel7-weblogic-atmmovilapp
       spec:
         ports:
         - name: 8001-tcp
@@ -105,5 +105,5 @@ repository. Alternately you can build it using the following YAML:
           protocol: TCP
           targetPort: 8001
         selector:
-          app: rhel7-weblogic-sampleapp
-          deploymentconfig: rhel7-weblogic-sampleapp
+          app: rhel7-weblogic-atmmovilapp
+          deploymentconfig: rhel7-weblogic-atmmovilapp
