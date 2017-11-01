@@ -10,12 +10,12 @@ ADD ${JAVA_BASEURL}${JAVA_NAME} /u01/tmp
 
 # Add Binaries and Install JDK
 RUN chmod a+xr /u01/tmp && \
-    rpm -Uvh /u01/tmp/jdk-8u151-linux-x64.rpm
+    rpm -Uvh /u01/tmp/${JAVA_NAME}
 
 ## java ##
-#RUN alternatives --install /usr/bin/java java /usr/java/latest/jre/bin/java 200000
+RUN alternatives --install /usr/bin/java java /usr/java/latest/jre/bin/java 200000
 ## javaws ##
-#RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/jre/bin/javaws 200000
+RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/jre/bin/javaws 200000
 
 ## Install javac only if you installed JDK (Java Development Kit) package ##
 #RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
