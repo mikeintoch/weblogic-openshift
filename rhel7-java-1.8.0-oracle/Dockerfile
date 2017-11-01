@@ -1,16 +1,21 @@
 FROM registry.access.redhat.com/rhel7:latest
 MAINTAINER Jose David Gamboa <jgamboag@redhat.com>
 
-# ENV JAVA_HOME="/usr/java/jdk1.8.0_151"
-ENV JAVA_HOME="/usr/java/${JAVA_VERSION}"
+ENV JAVA_HOME="/usr/java/jdk1.8.0_151"
+# ENV JAVA_HOME="/usr/java/${JAVA_VERSION}"
 
 # Copy binaries
 # -------------
-ADD ${JAVA_BASEURL}${JAVA_NAME} /u01/tmp
+#ADD ${JAVA_BASEURL}${JAVA_NAME} /u01/tmp
+ADD http://192.168.42.1/jdk-8u151-linux-x64.rpm /u01/tmp
+
 
 # Add Binaries and Install JDK
+# RUN chmod a+xr /u01/tmp && \
+  #  rpm -Uvh /u01/tmp/${JAVA_NAME}
+
 RUN chmod a+xr /u01/tmp && \
-    rpm -Uvh /u01/tmp/${JAVA_NAME}
+    rpm -Uvh /u01/tmp/jdk-8u151-linux-x64.rpm
 
 ## java ##
 RUN alternatives --install /usr/bin/java java /usr/java/latest/jre/bin/java 200000
