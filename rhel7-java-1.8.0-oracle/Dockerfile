@@ -6,7 +6,7 @@ ENV JAVA_HOME="/usr/java/jdk1.8.0_151"
 
 # Copy binaries
 # -------------
-ADD ${JAVA_BASEURL}${JAVA_NAME} /u01/tmp
+ADD ${JAVA_BASEURL}${JAVA_NAME} /tmp/
 #ADD http://192.168.42.1/jdk-8u151-linux-x64.rpm /tmp/
 
 
