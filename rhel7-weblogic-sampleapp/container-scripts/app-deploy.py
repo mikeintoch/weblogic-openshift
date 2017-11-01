@@ -10,8 +10,8 @@ import os
 
 # Deployment Information 
 domainhome = os.environ.get('DOMAIN_HOME', '/u01/oracle/user_projects/domains/base_domain')
-appname    = os.environ.get('APP_NAME', 'sample')
-apppkg     = os.environ.get('APP_PKG_FILE', 'sample.war')
+appname    = os.environ.get('APP_NAME', 'atm_movil-webclient')
+apppkg     = os.environ.get('APP_PKG_FILE', 'atm_movil-webclient-1.0-SNAPSHOT.war')
 appdir     = os.environ.get('APP_PKG_LOCATION', '/u01/oracle')
 cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
 
