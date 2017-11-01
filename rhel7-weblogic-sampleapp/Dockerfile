@@ -22,11 +22,16 @@ FROM rhel7-weblogic-domain
 MAINTAINER Johnathan Kupferer <jkupfere@redhat.com>
 
 # Define variables with default values
-ENV APP_NAME=${APP_NAME:-sample} \
-    APP_PKG_FILE=${APP_PKG_FILE:-sample.war} \
+#ENV APP_NAME=${APP_NAME:-sample} \
+ #   APP_PKG_FILE=${APP_PKG_FILE:-sample.war} \
+  #  APP_PKG_LOCATION=${APP_PKG_LOCATION:-/u01/oracle}
+
+ENV APP_NAME=atm_movil-webclient \
+    APP_PKG_FILE=atm_movil-webclient-1.0-SNAPSHOT.war \
     APP_PKG_LOCATION=${APP_PKG_LOCATION:-/u01/oracle}
 
 # Copy files and deploy application in WLST Offline mode
+ADD http://192.168.42.1/atm_movil-webclient-1.0-SNAPSHOT.war /u01/oracle/
 COPY container-scripts/* /u01/oracle/
 
 USER oracle
