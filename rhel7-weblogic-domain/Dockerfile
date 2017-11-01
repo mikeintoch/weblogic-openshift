@@ -49,6 +49,7 @@ COPY container-scripts/* /u01/oracle/
 
 # Configuration of WLS Domain
 #RUN export ADMIN_PASSWORD=$(if [ -z "$ADMIN_PASSWORD" ]; then dd if=/dev/urandom bs=15 count=1 2>/dev/null | base64 -w 0; else echo "$ADMIN_PASSWORD"; fi) && \
+    #/u01/oracle/wlst /u01/oracle/create-wls-domain.py && \
     #echo password= >> /u01/oracle/user_projects/domains/$DOMAIN_NAME/servers/AdminServer/security/boot.properties && \
     #echo "passssssssworddddd" && \
     #echo $ADMIN_PASSWORD && \
@@ -58,10 +59,11 @@ COPY container-scripts/* /u01/oracle/
     #echo ". /u01/oracle/user_projects/domains/$DOMAIN_NAME/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc && \
     #find /u01 -user oracle -exec chmod a+rwX /u01 {} ';'
 
-RUN /u01/oracle/wlst /u01/oracle/create-wls-domain.py && \
+RUN export ADMIN_PASSWORD=m4n4g3r1 && \
+    /u01/oracle/wlst /u01/oracle/create-wls-domain.py && \
     mkdir -p /u01/oracle/user_projects/domains/$DOMAIN_NAME/servers/AdminServer/security && \
     echo "username=weblogic" > /u01/oracle/user_projects/domains/$DOMAIN_NAME/servers/AdminServer/security/boot.properties && \ 
-    echo "password=m4n4g3r1" >> /u01/oracle/user_projects/domains/$DOMAIN_NAME/servers/AdminServer/security/boot.properties && \
+    echo "password=$ADMIN_PASSWORD" >> /u01/oracle/user_projects/domains/$DOMAIN_NAME/servers/AdminServer/security/boot.properties && \
     echo ". /u01/oracle/user_projects/domains/$DOMAIN_NAME/bin/setDomainEnv.sh" >> /u01/oracle/.bashrc && \
     find /u01 -user oracle -exec chmod a+rwX /u01 {} ';'
 
