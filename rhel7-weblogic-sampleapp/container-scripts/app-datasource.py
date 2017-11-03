@@ -40,20 +40,21 @@ cmo.setPassword(dsPassword)
  
 cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCConnectionPoolParams/' + dsName )
 cmo.setTestTableName(dsTestQuery)
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName )
-cmo.createProperty('user')
+
+#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName )
+#cmo.createProperty('user')
  
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/user')
-cmo.setValue(dsUserName)
+#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/user')
+#cmo.setValue(dsUserName)
  
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName )
-cmo.createProperty('databaseName')
+#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName )
+#cmo.createProperty('databaseName')
  
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/databaseName')
-cmo.setValue(dsDatabaseName)
+#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/databaseName')
+#cmo.setValue(dsDatabaseName)
  
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDataSourceParams/' + dsName )
-cmo.setGlobalTransactionsProtocol('OnePhaseCommit')
+#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDataSourceParams/' + dsName )
+#cmo.setGlobalTransactionsProtocol('OnePhaseCommit')
  
 cd('/SystemResources/' + dsName )
 set('Targets',jarray.array([ObjectName('com.bea:Name=' + datasourceTarget + ',Type=Server')], ObjectName))
@@ -61,6 +62,6 @@ set('Targets',jarray.array([ObjectName('com.bea:Name=' + datasourceTarget + ',Ty
 save()
 activate()
 
-updateDomain()
-closeDomain()
+#updateDomain()
+#closeDomain()
 exit()
