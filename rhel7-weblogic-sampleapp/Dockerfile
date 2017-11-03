@@ -53,5 +53,6 @@ ADD http://192.168.42.1/atm_movil-webclient-1.0-SNAPSHOT.war /u01/oracle/
 COPY container-scripts/* /u01/oracle/
 
 RUN chmod +xr $APP_PKG_FILE && \
-    wlst /u01/oracle/app-deploy.py && \
+    wlst /u01/oracle/app-datasource.py && \
+    # wlst /u01/oracle/app-deploy.py && \
     find /u01 -user oracle -exec chmod a+rwX /u01 {} ';'
