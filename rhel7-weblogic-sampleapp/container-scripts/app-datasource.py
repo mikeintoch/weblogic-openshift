@@ -51,11 +51,12 @@ set('UseXADataSourceInterface', 'false')
  
 # Create JDBCDriverParams Properties'
 create('myProperties','Properties')
-cd('Properties/DSParams_01')
+cd('Properties/NO_NAME_0')
 create('user','Property')
 cd('Property')
 cd('user')
 set('Value', 'openshiftUser')
+
  
 # Create JDBCConnectionPoolParams
 cd('/JDBCSystemResource/' + dsName +'/JdbcResource/' + dsName)
