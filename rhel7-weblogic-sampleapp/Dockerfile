@@ -52,18 +52,14 @@ ENV DOMAIN_NAME="${DOMAIN_NAME:-base_domain}" \
 ADD http://192.168.42.1/atm_movil-webclient-1.0-SNAPSHOT.war /u01/oracle/
 COPY container-scripts/* /u01/oracle/
 
-RUN whoami
-RUN ls -l /u01/oracle/
-
 USER root
 RUN chmod +xr /u01/oracle/$APP_PKG_FILE
-RUN whoami
-RUN ls -l /u01/oracle/
 
 USER oracle
 
-# RUN chmod +xr /u01/oracle/$APP_PKG_FILE && \
-
-RUN wlst /u01/oracle/app-datasource.py && \
-    # wlst /u01/oracle/app-deploy.py && \
+RUN wlst /u01/oracle/app-deploy.py && \
     find /u01 -user oracle -exec chmod a+rwX /u01 {} ';'
+
+#RUN wlst /u01/oracle/app-datasource.py && \
+    # wlst /u01/oracle/app-deploy.py && \
+    #find /u01 -user oracle -exec chmod a+rwX /u01 {} ';'
