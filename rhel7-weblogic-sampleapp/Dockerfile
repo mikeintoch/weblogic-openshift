@@ -57,7 +57,8 @@ RUN chmod +xr /u01/oracle/$APP_PKG_FILE
 
 USER oracle
 
-RUN wlst /u01/oracle/app-deploy.py && \
+RUN wlst /u01/oracle/app-datasource.py && \
+    wlst /u01/oracle/app-deploy.py && \
     find /u01 -user oracle -exec chmod a+rwX /u01 {} ';'
 
 #RUN wlst /u01/oracle/app-datasource.py && \
