@@ -25,43 +25,44 @@ readDomain(domainhome)
 
 # Create DataSource
 # ==================
-cd('/')
-cmo.createJDBCSystemResource(dsName);
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName)
+
+create(dsName, 'JDBCSystemResource')
+cd('/JDBCSystemResource/' + dsName)
+set('Target','AdminServer')
+ 
+cd('/JDBCSystemResource/' + dsName +'/JdbcResource/' + dsName)
+
+# Create JDBCDataSourceParams
 cmo.setName(dsName)
+cd('/JDBCSystemResource/' + dsName +'/JdbcResource/' + dsName)
+create('myJdbcDataSourceParams','JDBCDataSourceParams')
+cd('JDBCDataSourceParams/NO_NAME_0')
+set('JNDIName', java.lang.String(dsJNDIName))
+set('GlobalTransactionsProtocol', java.lang.String('None'))
+ 
+# Create JDBCDriverParams
+cd('/JDBCSystemResource/' + dsName +'/JdbcResource/' + dsName)
+create('myJdbcDriverParams','JDBCDriverParams')
+cd('JDBCDriverParams/NO_NAME_0')
+set('DriverName',dsDriverName)
+set('URL',dsURL)
+set('PasswordEncrypted', dsPassword)
+set('UseXADataSourceInterface', 'false')
+ 
+# Create JDBCDriverParams Properties'
+create('myProperties','Properties')
+cd('Properties/DSParams_01')
+create('user','Property')
+cd('Property')
+cd('user')
+set('Value', 'openshiftUser')
+ 
+# Create JDBCConnectionPoolParams
+cd('/JDBCSystemResource/' + dsName +'/JdbcResource/' + dsName)
+create('myJdbcConnectionPoolParams','JDBCConnectionPoolParams')
+cd('JDBCConnectionPoolParams/NO_NAME_0')
+set('TestTableName','SQL SELECT 1')
 
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDataSourceParams/' + dsName )
-set('JNDINames',jarray.array([String(dsJNDIName)], String))
- 
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName )
-cmo.setUrl(dsURL)
-cmo.setDriverName( dsDriverName )
-cmo.setPassword(dsPassword)
- 
-cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCConnectionPoolParams/' + dsName )
-cmo.setTestTableName(dsTestQuery)
-
-#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName )
-#cmo.createProperty('user')
- 
-#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/user')
-#cmo.setValue(dsUserName)
- 
-#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName )
-#cmo.createProperty('databaseName')
- 
-#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDriverParams/' + dsName + '/Properties/' + dsName + '/Properties/databaseName')
-#cmo.setValue(dsDatabaseName)
- 
-#cd('/JDBCSystemResources/' + dsName + '/JDBCResource/' + dsName + '/JDBCDataSourceParams/' + dsName )
-#cmo.setGlobalTransactionsProtocol('OnePhaseCommit')
- 
-cd('/SystemResources/' + dsName )
-set('Targets',jarray.array([ObjectName('com.bea:Name=' + datasourceTarget + ',Type=Server')], ObjectName))
-
-save()
-activate()
-
-#updateDomain()
-#closeDomain()
+updateDomain()
+closeDomain()
 exit()
