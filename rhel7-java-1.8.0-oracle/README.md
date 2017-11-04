@@ -9,4 +9,4 @@ Deploying this Application within OpenShift
 
 This image builder can be deployed using the following command:
 
-oc creat -f https://raw.githubusercontent.com/mikeintoch/weblogic-openshift/master/rhel7-java-1.8.0-oracle/rhel-java-1.8.0-oracle.yaml
+oc create -f rhel-java-1.8.0-oracle.yaml
