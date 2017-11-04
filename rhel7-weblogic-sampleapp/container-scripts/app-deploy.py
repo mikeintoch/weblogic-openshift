@@ -11,7 +11,7 @@ import os
 # Deployment Information 
 domainhome = os.environ.get('DOMAIN_HOME')
 appname    = os.environ.get('appname')
-apppkg     = os.environ.get('apppkg)
+apppkg     = os.environ.get('apppkg')
 appdir     = os.environ.get('APP_PKG_LOCATION')
 cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
 
