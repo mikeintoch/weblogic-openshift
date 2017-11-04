@@ -45,6 +45,29 @@ repository. Alternately you can build it using the following YAML:
           type: Git
         strategy:
           dockerStrategy:
+            env:
+            -name: appname
+            value: atm_movil-webclient
+            -name: apppkg
+            value: atm_movil-webclient-1.0-SNAPSHOT.war
+            -name: dsName
+            value: ds_atm_movil
+            -name: dsDatabaseName
+            value: test
+            -name: datasourceTarget
+            value: AdminServer
+            -name: dsJNDIName
+            value: jdbc/atm_movil
+            -name: dsDriverName
+            value: com.mysql.jdbc.Driver
+            -name: dsURL
+            value: jdbc:mysql://192.168.42.1:3306/test
+            -name: dsUserName
+            value: openshiftUser
+            -name: dsPassword
+            value: R3dh4t1!
+            -name: dsTestQuery
+            value: SQL SELECT 1
             from:
               kind: ImageStreamTag
               name: rhel7-weblogic-domain:latest
