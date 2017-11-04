@@ -45,8 +45,8 @@ ARG ADMIN_PASSWORD
 
 # Environment variables required for this build (do NOT change)
 # -------------------------------------------------------------
-ENV FMW_PKG=fmw_${FMW_VERSION}_wls${FMW_QUICK:+_quick}_Disk1_1of1.zip \
-    FMW_JAR=fmw_${FMW_VERSION}_wls${FMW_QUICK:+_quick}.jar \
+ENV FMW_PKG=fmw_${FMW_VERSION}_wls_Disk1_1of1.zip \
+    FMW_JAR=fmw_${FMW_VERSION}_wls.jar \
     SCRIPT_FILE=/u01/oracle/createAndStartEmptyDomain.sh \
     ORACLE_HOME=/u01/oracle \
     USER_MEM_ARGS="-Djava.security.egd=file:/dev/./urandom" \
