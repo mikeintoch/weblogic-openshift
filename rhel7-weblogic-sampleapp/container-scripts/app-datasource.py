@@ -1,12 +1,7 @@
 import os
 
 # Deployment Information 
-domain_name  = os.environ.get("DOMAIN_NAME", "base_domain")
 domainhome = os.environ.get('DOMAIN_HOME', '/u01/oracle/user_projects/domains/base_domain')
-appname    = os.environ.get('APP_NAME', 'atm_movil-webclient')
-apppkg     = os.environ.get('APP_PKG_FILE', 'atm_movil-webclient-1.0-SNAPSHOT.war')
-appdir     = os.environ.get('APP_PKG_LOCATION', '/u01/oracle')
-cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
 
 # Definition DataSource Properties
 dsName            = "ds_atm_movil"
