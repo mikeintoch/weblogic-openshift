@@ -23,7 +23,7 @@ items:
         name: rhel7-weblogic-atmmovilapp:latest
     source:
       git:
-        uri: https://github.com/idavistro/openshift-weblogic.git
+        uri: https://github.com/mikeintoch/weblogic-openshift.git
       contextDir: rhel7-weblogic-sampleapp
       type: Git
     strategy:
