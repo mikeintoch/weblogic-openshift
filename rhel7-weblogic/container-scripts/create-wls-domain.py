@@ -21,6 +21,7 @@ print('production_mode : [%s]' % production_mode);
 # Open default domain template
 # ======================
 readTemplate("/u01/oracle/wlserver/common/templates/wls/wls.jar")
+readTemplate("/u01/oracle/wlserver/common/templates/wls/oracle.wls-webservice-jaxws-template.jar")
 
 set('Name', domain_name)
 setOption('DomainName', domain_name)
