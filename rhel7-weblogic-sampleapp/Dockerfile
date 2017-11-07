@@ -59,6 +59,9 @@ COPY container-scripts/* /u01/oracle/
 USER root
 RUN chmod +xr /u01/oracle/${apppkg}
 
+RUN mkdir -p /AP/herramientas/logs/internet/cajeros && \
+    chown -R oracle:oracle /AP 
+
 USER oracle
 
 RUN wlst /u01/oracle/app-datasource.py && \
