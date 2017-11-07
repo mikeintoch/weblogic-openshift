@@ -24,7 +24,7 @@ items:
     source:
       type: Git
       git:
-        uri: https://github.com/idavistro/openshift-weblogic.git
+        uri: https://github.com/mikeintoch/weblogic-openshift.git
       contextDir: rhel7-weblogic-domain
     strategy:
       dockerStrategy:
