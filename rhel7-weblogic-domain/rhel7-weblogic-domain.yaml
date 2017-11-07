@@ -1,0 +1,38 @@
+kind: List
+apiVersion: v1
+items:
+
+- kind: ImageStream
+  apiVersion: v1
+  metadata:
+    labels:
+      app: rhel7-weblogic-domain
+    name: rhel7-weblogic-domain
+  spec: {}
+
+- kind: BuildConfig
+  apiVersion: v1
+  metadata:
+    labels:
+      app: rhel7-weblogic-domain
+    name: rhel7-weblogic-domain
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: rhel7-weblogic-domain:latest
+    source:
+      type: Git
+      git:
+        uri: https://github.com/idavistro/openshift-weblogic.git
+      contextDir: rhel7-weblogic-domain
+    strategy:
+      dockerStrategy:
+        from:
+          kind: ImageStreamTag
+          name: rhel7-weblogic:latest
+      type: Docker
+    triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      imageChange: {}
