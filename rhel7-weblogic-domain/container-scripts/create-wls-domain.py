@@ -23,9 +23,10 @@ print('production_mode : [%s]' % production_mode);
 # Open default domain template
 # ======================
 #readTemplate("/u01/oracle/wlserver/common/templates/wls/wls.jar")
-selectTemplate('Base WebLogic Server Domain')
-selectTemplate('WebLogic Advanced Web Services for JAX-WS Extension Template')
-loadTemplates()
+readTemplate("/u01/oracle/wlserver/common/templates/wls/oracle.wls-webservice-jaxws-template.jar")
+#selectTemplate('Base WebLogic Server Domain')
+#selectTemplate('WebLogic Advanced Web Services for JAX-WS Extension Template')
+#loadTemplates()
 
 set('Name', domain_name)
 setOption('DomainName', domain_name)
