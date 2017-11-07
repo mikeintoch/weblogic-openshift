@@ -42,15 +42,15 @@ items:
         - name: dsJNDIName
           value: jdbc/atm_movil
         - name: dsDriverName
-          value: com.mysql.jdbc.Driver
+          value: oracle.jdbc.OracleDriver
         - name: dsURL
-          value: jdbc:mysql://192.168.42.1:3306/test
+          value: jdbc:oracle:thin:@//192.168.42.1:1521/xe
         - name: dsUserName
-          value: openshiftUser
+          value: UGATMMOVILADMIN
         - name: dsPassword
-          value: R3dh4t1!
+          value: redhat
         - name: dsTestQuery
-          value: SQL SELECT 1
+          value: SQL ISVALID
         from:
           kind: ImageStreamTag
           name: rhel7-weblogic-domain:latest
