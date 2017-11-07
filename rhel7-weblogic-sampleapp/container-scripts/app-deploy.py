@@ -13,7 +13,7 @@ domainhome = os.environ.get('DOMAIN_HOME')
 appname    = os.environ.get('appname')
 apppkg     = os.environ.get('apppkg')
 appdir     = os.environ.get('APP_PKG_LOCATION')
-cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
+#cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
 
 # Read Domain in Offline Mode
 # ===========================
@@ -29,7 +29,7 @@ app.setStagingMode('nostage')
 # Assign application to AdminServer
 # =================================
 assign('AppDeployment', appname, 'Target', 'AdminServer')
-assign('AppDeployment', appname, 'Target', cluster_name)
+#assign('AppDeployment', appname, 'Target', cluster_name)
 
 # Update Domain, Close It, Exit
 # ==========================
