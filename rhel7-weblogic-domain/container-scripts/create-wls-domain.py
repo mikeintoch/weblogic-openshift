@@ -10,13 +10,13 @@
 domain_name  = os.environ.get("DOMAIN_NAME", "base_domain")
 admin_port   = int(os.environ.get("ADMIN_PORT", "8001"))
 admin_pass   = os.environ.get("ADMIN_PASSWORD")
-cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
+#cluster_name = os.environ.get("CLUSTER_NAME", "DockerCluster")
 domain_path  = '/u01/oracle/user_projects/domains/%s' % domain_name
 production_mode         = os.environ.get("PRODUCTION_MODE", "prod")
 
 print('domain_name : [%s]' % domain_name);
 print('admin_port  : [%s]' % admin_port);
-print('cluster_name: [%s]' % cluster_name);
+#print('cluster_name: [%s]' % cluster_name);
 print('domain_path : [%s]' % domain_path);
 print('production_mode : [%s]' % production_mode);
 
@@ -66,11 +66,11 @@ set('NodeManagerPasswordEncrypted', admin_pass)
 
 # Define a WebLogic Cluster
 # =========================
-cd('/')
-create(cluster_name, 'Cluster')
+#cd('/')
+#create(cluster_name, 'Cluster')
 
-cd('/Clusters/%s' % cluster_name)
-cmo.setClusterMessagingMode('unicast')
+#cd('/Clusters/%s' % cluster_name)
+#cmo.setClusterMessagingMode('unicast')
 
 # Write Domain
 # ============
