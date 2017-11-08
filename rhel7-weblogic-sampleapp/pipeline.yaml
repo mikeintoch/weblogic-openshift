@@ -1,13 +1,14 @@
-kind: "BuildConfig"
-apiVersion: "v1"
+kind: BuildConfig
 metadata:
-  name: "atmmovil-pipeline"
+  name: atmmovil-pipeline
 spec:
   source:
+    contextDir: rhel7-weblogic-sampleapp
     git:
-      uri: "https://github.com/mikeintoch/weblogic-openshift"
-      ref: "master"
-  contextDir: "rhel7-weblogic-sampleapp"
+      ref: master
+      uri: 'https://github.com/mikeintoch/weblogic-openshift'
+    type: Git
   strategy:
     jenkinsPipelineStrategy:
-      jenkinsfilePath: "Jenkinsfile"
+      jenkinsfilePath: Jenkinsfile
+    type: JenkinsPipeline
