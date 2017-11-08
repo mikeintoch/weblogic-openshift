@@ -8,7 +8,12 @@ podTemplate(
 
     node("myJenkins") {
 
-        @Library('github.com/redhat-helloworld-msa/jenkins-library@master') _
+        @Library('github.com/mikeintoch/jenkins-library@master')
+        
+        stage ('SCM checkout'){
+            echo 'Checking out git repository'
+            checkout scm
+        }
     
         stage ('DEV - Image build'){
             echo 'Building docker image and deploying to Dev'
